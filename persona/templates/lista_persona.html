@@ -1,0 +1,32 @@
+{% for persona in object_list %}
+    {{persona.nombre}}
+{% endfor %}
+
+<br>
+<br>
+
+
+<br>
+<br>
+
+{% if page_obj.has_previous %}
+    <a href="{{ request.path }}?page={{page_obj.previous_page_number}}">Anterior</a>
+    <br>
+    anterior: {{page_obj.previous_page_number}}
+{% else %}
+    no tiene anterior
+{% endif %}
+
+{% if page_obj.has_next %}
+    <a href="{{ request.path }}?page={{page_obj.next_page_number}}">Siguiente</a>
+    <br>
+    siguiente: {{page_obj.next_page_number}}
+{% else %}
+    no tiene siguiente
+{% endif %}
+
+<br>
+pagina: {{ page_obj.number }}
+<br>
+cantidad paginas: {{ page_obj.paginator.num_pages }}
+<br>
